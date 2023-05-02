@@ -1,4 +1,3 @@
-# docker-compose.yml
 version: "3.3"
 services:
   mysql:
@@ -33,12 +32,12 @@ services:
       - "8081:8081"
     container_name: nexus-compose
     
-  volumes:
-    SonarQube_data:
-      driver: local
-    SonarQube_extensions:
-      driver: local
-    SonarQube_logs:
-      driver: local
-    nexus-data:
-      driver: local
+volumes:
+  SonarQube_data:
+    driver: local
+  SonarQube_extensions:
+    driver: local
+  SonarQube_logs:
+    driver: local
+  nexus-data:
+    driver: local
