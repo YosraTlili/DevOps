@@ -80,5 +80,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<distributionManagement>
+        	<repository>
+            		<id>deploymentRepo</id>
+            		<url>http://localhost:8081/repository/devOpsPrj/</url>
+        	</repository>
+    	</distributionManagement>
 
 </project>
