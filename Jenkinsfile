@@ -54,18 +54,18 @@ stages {
         }
       }
     }
-    /*
+    
 
   stage("Push Docker image to Docker Hub") {
   steps {
     script {
-      docker.withRegistry("https://index.docker.io/v1/") {
+      docker.withRegistry("https://index.docker.io/v1/","dockerhubLogin") {
         docker.login(username: "lkhlEya", password: "dockerhub")
         docker.image("lkhleya/docker_devops_rep:tagname").push()
       }
     }
   }
-}*/
+}
 
 }
 }
