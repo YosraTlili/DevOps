@@ -8,7 +8,7 @@ stages {
             git branch: 'developELA', url: 'https://github.com/YosraTlili/DevOps.git'
         }
     }
- /*   
+  
     stage('Verify environment') {
         steps {
             sh 'mvn --version'
@@ -22,7 +22,7 @@ stages {
         sh 'docker-compose up -d --no-recreate'
       }
     }
-    
+     /* 
     stage('Build') {
         steps {
             sh 'mvn clean package'
