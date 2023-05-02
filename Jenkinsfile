@@ -46,7 +46,7 @@ stages {
         sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar -Dsonar.host.url=http://localhost:9000"
       }
     }
-  /*  
+    
   stage("Build Docker image") {
       steps {
         script {
@@ -54,7 +54,7 @@ stages {
         }
       }
     }
-    
+    /*
 
   stage("Push Docker image to Docker Hub") {
   steps {
