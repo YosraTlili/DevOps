@@ -35,12 +35,12 @@ stages {
         }
     }
     
-    /* stage('Deploy') {
+     stage('Deploy') {
         steps {
-            sh "mvn deploy -DskipTests -DaltDeploymentRepository=esprit-spring-ioc-1.0-releases::default::http://192.168.33.10:8081/repository/Spring_IOC/ -Dusername=admin -Dpassword=nexus"
+            sh "mvn deploy -DskipTests -DaltDeploymentRepository=deploymentRepo::default::http://localhost:8081/repository/devOpsPrj/ -Dusername=admin -Dpassword=nexus"
         }
     }
-   
+   /*
     /*stage('Static code analysis') {
       steps {
         sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar -Dsonar.host.url=http://192.168.33.10:9000"
