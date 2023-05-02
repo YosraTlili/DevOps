@@ -28,14 +28,14 @@ stages {
             sh 'mvn clean package'
         }
     }
-    /* 
+    
     stage('Unit tests') {
         steps {
             sh 'mvn test'
         }
     }
     
-    stage('Deploy') {
+    /* stage('Deploy') {
         steps {
             sh "mvn deploy -DskipTests -DaltDeploymentRepository=esprit-spring-ioc-1.0-releases::default::http://192.168.33.10:8081/repository/Spring_IOC/ -Dusername=admin -Dpassword=nexus"
         }
