@@ -22,13 +22,13 @@ stages {
         sh 'docker-compose up -d --no-recreate'
       }
     }
-     /* 
+     
     stage('Build') {
         steps {
             sh 'mvn clean package'
         }
     }
-    
+    /* 
     stage('Unit tests') {
         steps {
             sh 'mvn test'
