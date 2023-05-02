@@ -18,8 +18,8 @@ stages {
     stage('Build and Run Services') {
       steps {
         sh 'docker-compose --version'
-        sh 'sudo docker-compose build'
-        sh 'sudo docker-compose up -d --no-recreate'
+        sh 'docker-compose build'
+        sh 'docker-compose up -d --no-recreate'
       }
     }
      /* 
