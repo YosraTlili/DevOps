@@ -40,13 +40,13 @@ stages {
             sh "mvn deploy -DskipTests -DaltDeploymentRepository=deploymentRepo::default::http://localhost:8081/repository/devOpsPrj/ -Dusername=admin -Dpassword=nexus"
         }
     }
-   /*
-    /*stage('Static code analysis') {
+   
+    stage('Static code analysis') {
       steps {
-        sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar -Dsonar.host.url=http://192.168.33.10:9000"
+        sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar -Dsonar.host.url=http://localhost:9000"
       }
     }
-    
+  /*  
   stage("Build Docker image") {
       steps {
         script {
