@@ -60,7 +60,7 @@ stages {
   steps {
     script {
       withCredentials([usernamePassword(credentialsId: 'dockerhubLogin', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-        docker.withRegistry("https://index.docker.io/v1/", "docker") {
+        docker.withRegistry("https://index.docker.io/v1/", "dockerhubLogin") {
           docker.login("${USERNAME}", "${PASSWORD}")
           docker.image("lkhleya/docker_devops_rep:tagname").push()
         }
