@@ -59,10 +59,11 @@ stages {
  stage("Push Docker image") {
   steps {
     script {
-      docker.image("lkhleya/docker_devops_rep:tagname").push()
+      docker.image("lkhleya/docker_devops_rep:latest").push()
     }
   }
 }
+
 
 
 
