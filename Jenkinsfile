@@ -56,15 +56,10 @@ stages {
     }
     
 
- stage("Push Docker image to Docker Hub") {
+ stage("Push Docker image") {
   steps {
     script {
-      withCredentials([usernamePassword(credentialsId: 'dockerhubLogin', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-        docker.withRegistry("https://index.docker.io/v1/", "dockerhubLogin") {
-          docker.login("${USERNAME}", "${PASSWORD}")
-          docker.image("lkhleya/docker_devops_rep:tagname").push()
-        }
-      }
+      docker.image("lkhleya/docker_devops_rep:tagname").push()
     }
   }
 }
