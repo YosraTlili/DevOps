@@ -1,0 +1,61 @@
+version: "3.3"
+services:
+
+  nexus:
+    image: sonatype/nexus3:latest
+    container_name: nexus
+    ports:
+      - 8081:8081
+      - 8082:8082
+    volumes:
+      - /home/nexus/nexus-data:/sonatype-work
+    restart: on-failure
+
+  sonar:
+    image: sonarqube:latest
+    container_name: sonar
+    ports:
+      - 9000:9000
+    volumes:
+      - /opt/sonarqube/data
+    restart: unless-stopped
+
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    volumes:
+      - /home/mysqldata:/var/lib/mysql
+
+  spring_app:
+    image: tpAchatProject
+    container_name: tpAchatProject
+    restart: unless-stopped
+    ports:
+      - 9090:9090
+    depends_on:
+      - mysqldb
+
+  jenkins:
+    user: jenkins
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - 8080:8080
+      - 5000:5000
+    volumes:
+      - /home/jenkins/jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: on-failure
+
+volumes: # Define volumes for data persistence
+  sonarqube_data: # Volume name for SonarQube data
+  sonarqube_extensions:
+  sonarqube_logs:
+  nexus_data: # Volume name for Nexus data
+  jenkins_data: # Volume name for Jenkins data
+  mysql_data: # Volume name for MySQL data
